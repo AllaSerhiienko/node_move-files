@@ -28,9 +28,7 @@ async function app() {
       newDestination = path.join(newDestination, fileName);
     }
 
-    await fs.access(path.dirname(newDestination));
-    await fs.cp(source, newDestination);
-    await fs.rm(source);
+    await fs.rename(source, newDestination);
   } catch (error) {
     console.error(error);
   }
